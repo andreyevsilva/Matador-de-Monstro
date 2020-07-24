@@ -41,7 +41,7 @@
 
         <!--Resultado do jogo, caso o jogador perca ou ganhe-->
         <div v-if="hasResult" class="panel result">
-            <div v-if="mosterLife == 0" class="win">Você Venceu!!! :)</div>
+            <div v-if="monsterLife == 0" class="win">Você Venceu!!! :)</div>
             <div v-if="playerLife == 0" class="loose">Você Perdeu! :( </div>
         </div>
 
@@ -51,9 +51,9 @@
                 <button class="btn attack">Ataque</button>
                 <button class="btn especial-attack">Ataque Especial</button>
                 <button class="btn heal">Curar</button>
-                <button class="btn give-up">Desistir</button>
+                <button class="btn give-up" @click="running = false">Desistir</button>
             </template>
-            <button class="btn new-game">Iniciar Jogo</button>
+            <button v-else @click="startGame" class="btn new-game">Iniciar Jogo</button>
         </div>
 
         <!--Histórico do jogo-->
