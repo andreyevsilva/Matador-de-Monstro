@@ -1,0 +1,19 @@
+
+/**
+    Font do Html
+*/
+
+html{
+    font-family: "Monteserrat","sans-serif";
+}
+
+#app{
+    display: flex;
+    flex-direction: column;
+}
+
+.panel{
+    margin:10px;
+    padding:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.15);
+}
