@@ -40,7 +40,10 @@
         </div>
 
         <!--Resultado do jogo, caso o jogador perca ou ganhe-->
-        <div class="panel result"></div>
+        <div v-if="hasResult" class="panel result">
+            <div v-if="mosterLife == 0" class="win">Você Venceu!!! :)</div>
+            <div v-if="playerLife == 0" class="loose">Você Perdeu! :( </div>
+        </div>
 
         <!--Botões de ações do jogo-->
         <div class="panel buttons"></div>
