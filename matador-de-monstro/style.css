@@ -17,3 +17,43 @@ html{
     padding:20px;
     box-shadow:0 2px 10px rgba(0,0,0,0.15);
 }
+
+/*Estilo Relacionado a area dos pontos*/
+
+.scores{
+    display:flex;
+}
+
+.score{
+    /*O elemento vai poder crescer dentro de um flex container*/
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.score h1{
+  font-weight: 300px;
+  font-size: 1.6rem;
+}
+
+/* Wrapper Barra de vida*/
+.life-bar{
+    width: 80%;
+    height: 20px;
+    border: 3px solid #000;
+}
+
+/*Barra de vida*/
+.life-bar .life{
+    display:flex;
+    justify-content: center;
+    height: 100%;
+    background-color: green;
+}
+
+/*Barra de vida status perio*/
+.life-bar .life.danger{
+    background-color: red;
+}
