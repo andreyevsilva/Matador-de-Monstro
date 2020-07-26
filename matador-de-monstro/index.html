@@ -42,7 +42,8 @@
         <!--Resultado do jogo, caso o jogador perca ou ganhe-->
         <div v-if="hasResult" class="panel result">
             <div v-if="monsterLife == 0" class="win">Você Venceu!!! :)</div>
-            <div v-if="playerLife == 0" class="loose">Você Perdeu! :( </div>
+            <div v-else-if="playerLife == 0 && monsterLife == 0" class="draw">Empate</div>
+            <div v-else-if="playerLife == 0" class="loose">Você Perdeu! :( </div>
         </div>
 
         <!--Botões de ações do jogo-->
@@ -57,7 +58,13 @@
         </div>
 
         <!--Histórico do jogo-->
-        <div v-if="logs.length" class="panel logs"></div>
+        <div v-if="logs.length" class="panel logs">
+            <ul>
+                <li v-for="log in logs" class="log" :class="log.classe">
+                    {{log.text}}
+                </li>
+            </ul>
+        </div>
 
     </div>
 

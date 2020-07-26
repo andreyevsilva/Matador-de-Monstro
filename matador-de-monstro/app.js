@@ -1,9 +1,10 @@
 new Vue({
     el: '#app',
     data: {
-        running:false,/*Este atributo é responsavle por saber se o jogo está sendo executado ou não*/
+        running:false,/*Este atributo é responsavel por saber se o jogo está sendo executado ou não*/
         playerLife:100,
         monsterLife:100,
+        logs:[],
     },
     computed: {
         hasResult(){
@@ -16,6 +17,7 @@ new Vue({
             this.running = true;
             this.playerLife = 100;
             this.monsterLife = 100;
+            this.logs = [];
         },
         /*Para ataques normais e especiais */
         attack(especial){
@@ -33,17 +35,21 @@ new Vue({
             assim evita valor negativo */
             this[attr] = Math.max(this[attr] - hurt ,0);
 
-            this.registerLog(`${source} atingiu ${target} com ${hurt}.`,classe)
+            /*Log de Ferimento */
+            this.registerLog(`${source} atingiu ${target} com ${hurt}.`,classe);
         },
         /*Curar e atacar */
         healAndHurt(){
             this.heal(10,15);
-            this.hurt('playerLife',7,12,false);
+            this.hurt('playerLife',7,12,false,'Monstro','Player','monster');
         },
         /*Curar*/
         heal(min,max){
             const heal = this.getRandom(min,max);
             this.playerLife = Math.min(this.playerLife+heal,100);
+
+            /*Log de Cura */
+            this.registerLog(`Jogador ganhou força de ${heal}.`,'heal-player');
         },
         /*Registrar Logs
 
